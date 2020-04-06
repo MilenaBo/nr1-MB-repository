@@ -13,7 +13,8 @@ public class Calculator {
         System.out.println("KALKULATOR");
         Calculator calculatorPlus = new Calculator();
         calculatorPlus.addAB(1,4);
+        calculatorPlus.subtractAB(7,4);
         Calculator calculatorMinus = new Calculator();
-        calculatorPlus.subtractAB(1,4);
+        calculatorMinus.subtractAB(1,4);
            }
 }

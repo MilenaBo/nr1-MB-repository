@@ -23,7 +23,7 @@ public class StatisticsCounter{
       {avePostsPerUser = getPostsCount(statistics)/getUserNames(statistics);}
       else {avePostsPerUser =0;}
       if (getUserNames(statistics) != 0 )
-      {aveCommentsPerUser = getCommentsCount(statistics) /getUserNames(statistics);}
+      {aveCommentsPerUser = (double) getCommentsCount(statistics) /getUserNames(statistics);}
       else  { aveCommentsPerUser =0;}
       if (getPostsCount(statistics) != 0)
       {aveCommentsPerPost = getCommentsCount(statistics)/getPostsCount(statistics);}

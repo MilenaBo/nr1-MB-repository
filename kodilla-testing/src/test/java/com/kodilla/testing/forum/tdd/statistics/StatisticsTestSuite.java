@@ -92,7 +92,7 @@ public class StatisticsTestSuite {
         //when
         statisticsCounter.calculateAdvStatistics(statisticsMock);
         // then
-      //  Assert.assertEquals(0.05,statisticsCounter.getAveCommentsPerPost(),0.001);
+      //Assert.assertEquals(0.5,statisticsCounter.getAveCommentsPerPost(),0.001);
         Assert.assertEquals(0.5,statisticsCounter.getAveCommentsPerUser(),0.001);
         Assert.assertEquals(10,statisticsCounter.getAvePostsPerUser(),0.001);
     }

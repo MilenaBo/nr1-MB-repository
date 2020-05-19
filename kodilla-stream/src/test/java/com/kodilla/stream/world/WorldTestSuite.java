@@ -25,24 +25,22 @@ public class WorldTestSuite {
 
         //create continents
     List<Continent> continent = new ArrayList<>();
-    World world = new World()
+    World world = new World();
     Continent continent1 = new Continent(asia,"Asia");
-    world.addContinents(continent1);                   //       DLACZEGO TAK NIE DZIAŁA ????
+    world.addContinents(continent1);
     Continent continent2 = new Continent(northAmerica,"North America");
     world.addContinents(continent2);
 
     //when
 
      BigDecimal total = BigDecimal.ZERO;
- total = world.getPeopleQuantity().totalPopulation;
-
-// ////////// **** CO ZROBIĆ ŻEBY URUCHOMIĆ I SPRAWDZIC METODĘ getPeopleQuantity()  ??
+     total = world.getPeopleQuantity();
 
     //Then
+
     BigDecimal expectedQuantity = new BigDecimal("3279263565");
     Assert.assertEquals(expectedQuantity,total);
 
-///////////   NA RAZIE POLICZONE DLA 4-ECH KRAJÓW (2 KONTYNENTY)
-
+//  NA RAZIE POLICZONE DLA 4-ECH KRAJÓW (2 KONTYNENTY)
 }
 }

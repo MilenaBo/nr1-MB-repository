@@ -6,7 +6,7 @@ public class ForumUser {
    private final int id;
     private final String name;
     private final char sex;
-    private final int dateOfBirth;
+    private final int dateOfBirth;  // uprościłam z typu LocalDate na int
     private final int posts;
 
     public ForumUser(final int id, final String name, final char sex, final int dateOfBirth, final int posts) {

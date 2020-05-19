@@ -17,7 +17,7 @@ public class StreamMainForumUser {
                 .map(entry -> entry.getKey() +": "+entry.getValue())
                 .forEach(System.out::println);
 
-        System.out.println(" maja co najmniej 20 lat: ");
+        System.out.println(" maja co najmniej 20 lat: "); // nie zastosowałam typu LocalDate
         Map<String,ForumUser> theResultMapOfForumUser2 = theForum.getList().stream()
                 .filter(forumUser -> forumUser.getDateOfBirth() < 2000)
                 .collect(Collectors.toMap(ForumUser::getName, forumUser -> forumUser));
@@ -36,6 +36,3 @@ public class StreamMainForumUser {
                 .forEach(System.out::println);
     }
 }
-
-
-// .filter(forumUser -> forumUser.getDateOfBirth() < 2000)

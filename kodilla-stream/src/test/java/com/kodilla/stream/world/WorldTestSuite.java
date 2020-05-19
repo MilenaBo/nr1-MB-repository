@@ -25,16 +25,17 @@ public class WorldTestSuite {
 
         //create continents
     List<Continent> continent = new ArrayList<>();
-
+    World world = new World()
     Continent continent1 = new Continent(asia,"Asia");
-////////    World.addContinents(continent1);                          DLACZEGO TAK NIE DZIAŁA ????
-    continent.add(continent1);
+    world.addContinents(continent1);                   //       DLACZEGO TAK NIE DZIAŁA ????
     Continent continent2 = new Continent(northAmerica,"North America");
-    continent.add(continent2);
+    world.addContinents(continent2);
 
     //when
+
      BigDecimal total = BigDecimal.ZERO;
-///////     total = World.getPeopleQuantity().totalPopulation;
+ total = world.getPeopleQuantity().totalPopulation;
+
 // ////////// **** CO ZROBIĆ ŻEBY URUCHOMIĆ I SPRAWDZIC METODĘ getPeopleQuantity()  ??
 
     //Then
@@ -44,5 +45,4 @@ public class WorldTestSuite {
 ///////////   NA RAZIE POLICZONE DLA 4-ECH KRAJÓW (2 KONTYNENTY)
 
 }
-
 }

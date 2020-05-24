@@ -14,13 +14,14 @@ import java.util.stream.IntStream;
 
 interface ArrayOperations {
 
-     static OptionalDouble getAverage(int[] numbers) {
+     static Double getAverage(int[] numbers) {
 
-         IntStream.range(0,numbers.length).map(n->numbers[n]);
+         IntStream.range(0,numbers.length).map(n->numbers[n])
+        .forEach(System.out::println);
 
-         OptionalDouble avargeArray10 = IntStream.range(0,10)
+         Double avargeArray10 = IntStream.range(0,10)
                  .map(n->numbers[n])
-                 .average();
+                 .average().getAsDouble();
                 return avargeArray10;
      }
 }

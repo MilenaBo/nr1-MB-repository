@@ -25,7 +25,6 @@ public class ArrayOperationsTestSuite  {
         ArrayOperations.getAverage(names);
 
 // then
-
-        Assert.assertEquals(25.2, ArrayOperations.getAverage(names));
+     Assert.assertEquals(25.2, ArrayOperations.getAverage(names),0.001);
     }
 }

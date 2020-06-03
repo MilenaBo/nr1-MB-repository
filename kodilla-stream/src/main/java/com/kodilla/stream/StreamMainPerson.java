@@ -5,6 +5,9 @@ import com.kodilla.stream.person.People;
 public class StreamMainPerson {
     public static void main(String[] args) {
         People.getList().stream()
+               .forEach(System.out::println);
+
+        People.getList().stream()
                 .map(s -> s.toUpperCase())
                 .forEach(System.out::println);
 

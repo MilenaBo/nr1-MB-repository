@@ -23,12 +23,11 @@ public final class Board {
     public String getName() {
         return name;
     }
-
     @Override
     public String toString() {
-        return "Board{" +"\n"+
-               ", name='" + name + '\'' +",\n"+
-                "taskLists=" + taskLists +"\n"+
+        return "Board{" + "\n" +
+                "name='" + name + '\'' + ",\n" +
+                "taskLists=" + taskLists + "\n" +
                 '}';
     }
 }

@@ -11,11 +11,11 @@ public class StreamMain {
 
         AllTitlesLists allTitlesLists = (AllTitlesLists) MovieStore.getMovies();
 
-        String theResultStringOfTitles = allTitlesLists.getAllTitlesListsMap().stream()
-                .flatmap(titleList -> allTitlesLists.getTitleList().stream())
-                .map(Title::getTitle)
-                .collect(Collectors.joining("!","<<",">>"));
-        System.out.println(theResultStringOfTitles);
+//        String theResultStringOfTitles = allTitlesLists.getAllTitlesListsMap().stream()
+//                .flatmap(titleList -> allTitlesLists.getTitleList().stream())
+//                .map(Title::getTitle)
+//                .collect(Collectors.joining("!","<<",">>"));
+//        System.out.println(theResultStringOfTitles);
 
     }
 }

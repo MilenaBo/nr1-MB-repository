@@ -13,6 +13,6 @@ public final class Title {
 
     @Override
     public String toString() {
-        return  title + '*';
+        return  title + "!";
     }
 }

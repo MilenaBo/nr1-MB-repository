@@ -21,7 +21,6 @@ public class Flight {
         this.timeFlightFrom = timeFlightFrom;
         this.timeFlightTo = timeFlightTo;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,33 +33,26 @@ public class Flight {
                 timeFlightFrom.equals(flight.timeFlightFrom) &&
                 timeFlightTo.equals(flight.timeFlightTo);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(flightNumber, flightType, flightFrom, flightTo,
                 timeFlightFrom, timeFlightTo);
     }
-
     public String getFlightNumber() {
         return flightNumber;
     }
-
     public String getFlightType() {
         return flightType;
     }
-
     public String getFlightFrom() {
         return flightFrom;
     }
-
     public String getFlightTo() {
         return flightTo;
     }
-
     public LocalDateTime getTimeFlightFrom() {
         return timeFlightFrom;
     }
-
     public LocalDateTime getTimeFlightTo() {
         return timeFlightTo;
     }

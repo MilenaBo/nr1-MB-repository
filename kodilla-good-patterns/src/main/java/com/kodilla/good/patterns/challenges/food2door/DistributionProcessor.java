@@ -9,7 +9,7 @@ public class DistributionProcessor {
     public DistributionProcessor(final InformationService informationService,
                                  final DistributionService distributionService,
                                  final DistributionRepository distributionRepository,
-                                final ProducerImplementationService producerImplementationService) {
+                                 final ProducerImplementationService producerImplementationService) {
         this.informationService = informationService;
         this.distributionService = distributionService;
         this.distributionRepository = distributionRepository;
@@ -23,7 +23,8 @@ public class DistributionProcessor {
             informationService.inform(orderRequest.getCustomer());
             distributionRepository.createDistribution(orderRequest.getCustomer(),
                     orderRequest.getFrom(),orderRequest.getTo());
-            producerImplementationService.prepareImplementation();
+            ProducerService producerService = producerImplementationService.prepareImplementation();
+            producerService.service("xx");
             return new DistributionDto(orderRequest.getCustomer(),orderRequest.getProduct(),
                     orderRequest.getValidationProducer(),true);
         }  else {

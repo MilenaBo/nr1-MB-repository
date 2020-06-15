@@ -10,12 +10,12 @@ public final class FlightMap {
 
     public static Map<String, List<Flight>> getFlights() {
 
-        Flight flight123a = new Flight("123", "arrived",
-                "WROCLAW", "GDANSK",
+        Flight flight123a = new Flight("123", "departure",
+                "GDANSK", "WARSZAWA",
                 LocalDateTime.of(2020, 6, 15, 12, 0),
                 LocalDateTime.of(2020, 6, 15, 13, 0));
         Flight flight125a = new Flight("125", "arrived",
-                "KRAKOW", "GDANSK",
+                "GDANSK", "RZESZOW",
                 LocalDateTime.of(2020, 6, 15, 13, 0),
                 LocalDateTime.of(2020, 6, 15, 14, 0));
         Flight flight128d= new Flight("128", "departure",
@@ -28,7 +28,7 @@ public final class FlightMap {
         gdanskAirPort.add(flight125a);
         gdanskAirPort.add(flight128d);
 
-        Flight flight124a= new Flight("124", "arrived",
+        Flight flight124a= new Flight("124", "departure",
                 "WROCLAW", "KRAKOW",
                 LocalDateTime.of(2020, 6, 15, 12, 0),
                 LocalDateTime.of(2020, 6, 15, 12, 30));
@@ -51,6 +51,7 @@ public final class FlightMap {
 
         final List<Flight> krakowAirPort = new ArrayList<>();
         krakowAirPort.add(flight124a);
+        krakowAirPort.add(flight125d);
         krakowAirPort.add(flight128a);
         krakowAirPort.add(flight129d);
         krakowAirPort.add(flight130d);
@@ -67,17 +68,42 @@ public final class FlightMap {
                 "KRAKOW", "WROCLAW",
                 LocalDateTime.of(2020, 6, 15, 22, 0),
                 LocalDateTime.of(2020, 6, 15, 22, 30));
+        Flight flight143a = new Flight("123", "arrived",
+                "WARSZAWA", "WROCLAW",
+                LocalDateTime.of(2020, 6, 15, 12, 0),
+                LocalDateTime.of(2020, 6, 15, 13, 0));
+        Flight flight144a= new Flight("144", "arrived",
+                "RZESZOW", "WROCLAW",
+                LocalDateTime.of(2020, 6, 15, 12, 0),
+                LocalDateTime.of(2020, 6, 15, 12, 30));
 
         final List<Flight> wroclawAirPort = new ArrayList<>();
         wroclawAirPort.add(flight123d);
         wroclawAirPort.add(flight124d);
         wroclawAirPort.add(flight130a);
+        wroclawAirPort.add(flight143a);
+        wroclawAirPort.add(flight144a);
+
+        Flight flight140a= new Flight("140", "arrived",
+                "GDANSK", "WARSZAWA",
+                LocalDateTime.of(2020, 6, 15, 22, 0),
+                LocalDateTime.of(2020, 6, 15, 22, 30));
+        Flight flight141a= new Flight("141", "departure",
+                "WARSZAWA", "WROCLAW",
+                LocalDateTime.of(2020, 6, 15, 22, 0),
+                LocalDateTime.of(2020, 6, 15, 22, 30));
+
+
+        final List<Flight> warszawaAirPort = new ArrayList<>();
+        warszawaAirPort.add(flight140a);
+        warszawaAirPort.add(flight141a);
 
         final Map<String, List<Flight>> flights =new HashMap<>();
 
         flights.put("GDANSK",gdanskAirPort);
         flights.put("KRAKOW",krakowAirPort);
         flights.put("WROCLAW",wroclawAirPort);
+        flights.put("WARSZAWA",warszawaAirPort);
 
         return flights;
     }

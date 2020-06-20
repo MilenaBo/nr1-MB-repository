@@ -1,14 +1,8 @@
 package com.kodilla.spring;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootAplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootAplication
-
-
-
-
-
-
+@SpringBootApplication
 public class SpringRunner {
 
     public static void main(String[] args) {

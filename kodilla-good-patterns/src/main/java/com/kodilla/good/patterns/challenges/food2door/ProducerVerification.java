@@ -9,12 +9,8 @@ public class ProducerVerification {
 
     private Producer producer;
 
-    List<Producer>  producersSet = (List<Producer>) Producer.getProducers();
+   // List<Producer>  producersSet = (List<Producer>) Producer.getProducers();
 
-//for (Producer theProducer: producersSet) {
-//    if (theProducer.getNameProducer()=)
-//
-//        System.out.println(theProducer);}
     }
 
 

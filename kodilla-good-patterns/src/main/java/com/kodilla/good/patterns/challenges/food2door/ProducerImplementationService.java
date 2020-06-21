@@ -14,6 +14,9 @@ public class ProducerImplementationService {
         if (orderRequest.getValidationProducer().equals("HealthyShop")) {
             return new ProducerExtraFoodShopService();
         }
+        if (orderRequest.getValidationProducer().equals("NewFoodShop")) {
+            return new ProducerNewFoodShopService();
+        }
         return new ProducerStandardShopService();
 
     }

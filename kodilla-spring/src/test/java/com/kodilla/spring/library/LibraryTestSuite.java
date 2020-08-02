@@ -46,7 +46,7 @@ public class LibraryTestSuite {
         System.out.println("===== Beans list: ==== >>");
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
-        System.out.println("<< ===== Beans list ====");
+        System.out.println("<< ===== Beans list of LibraryConfig====");
     }
 
     @Test
@@ -59,6 +59,6 @@ public class LibraryTestSuite {
         System.out.println("===== Beans list: ==== >>");
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
-        System.out.println("<< ===== Beans list ====");
+        System.out.println("<< ===== All Beans list of spring====");
     }
 }

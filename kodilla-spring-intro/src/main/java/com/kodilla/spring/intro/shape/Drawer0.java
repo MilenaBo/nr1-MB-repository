@@ -9,6 +9,7 @@ public class Drawer0 {
         shape = new Triangle();
         shape.draw();
 
+
 //        Circle circle= new Circle();
 //        Triangle triangle = new Triangle();
 //

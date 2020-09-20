@@ -29,17 +29,17 @@ public final class LibraryPrototype extends Prototype {
    CloneNotSupportedException {
         return (LibraryPrototype)super.clone();  }
 
-//   public LibraryPrototype deepCopy() throws
-//   CloneNotSupportedException {
-//        LibraryPrototype clonedLibrary = (LibraryPrototype)super.clone();
-//        clonedLibrary.books = new HashSet<>();
-//
-//        for (Book theList : books) {
-//            Book clonedList = new Book(theList.getTitle(),theList.getAuthor(),theList.getPublicationDate());
-//        for (Book book : theList.getTitle(),theList.getAuthor(),theList.getPublicationDate()) {
-//            clonedList.getBooks().add(books);  }
-//        clonedLibrary.getLists().add(clonedList);}
-//        return clonedLibrary;
-//   }
+   public LibraryPrototype deepCopy() throws
+   CloneNotSupportedException {
+        LibraryPrototype clonedLibrary = (LibraryPrototype)super.clone();
+        clonedLibrary.books = new HashSet<>();
+        Set<Book> clonedSet = new HashSet<>();
+        for (Book theList : books) {
+            Book clonedBook = new Book(theList.getTitle(), theList.getAuthor(), theList.getPublicationDate());
+            clonedSet.add(clonedBook);
+        }
+        clonedLibrary.books = clonedSet;
+        return clonedLibrary;
+   }
 
 }

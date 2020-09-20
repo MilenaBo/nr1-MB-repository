@@ -27,6 +27,14 @@ public final class Product {
     public Item getItem() { return item;    }
     public void setItem(Item item) { this.item = item;  }
 
+//    //***uwagi 4sie:
+//    @OneToMany(targetEntity = Item.class,
+//    mappedBy =  "product",
+//    cascade = CascadeType.ALL,
+//    fetch = FetchType.LAZY)
+//   public List<Item> getItem() {return  item;}
+
+
     @NotNull
     @Column(name = "NAME")
     public String getName() {return name;}

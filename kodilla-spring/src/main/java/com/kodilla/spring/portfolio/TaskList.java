@@ -4,29 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class TaskList {
-    String  name;
-    private final List<String> tasks = new ArrayList<>();
-    private Board board;
+    private final List<String> tasks;
 
-    public TaskList(final  String name) {
-        this.name = name;
+    public TaskList() {
+        tasks=new ArrayList<>();
     }
-    public String getName() {  return name;  }
 
-    public TaskList(final Board board) {
-        this.board=board;
-        }
-
-        public  TaskList() {}
-
-        public void toDoX() {
-        board.getToDoList();
-        }
-        public void inProgressX() {
-        board.getInProgressList();
-        }
-        public void doneX() {
-        board.getDoneList();
-        }
-
+    @Override
+    public String toString() {
+        return "TaskList.......{" +
+                "tasks=" + tasks +
+                '}';
+    }
 }

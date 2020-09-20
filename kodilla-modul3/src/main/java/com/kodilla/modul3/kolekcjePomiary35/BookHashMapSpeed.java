@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class BookHashMapSpeed {
     public static void bookHashMapSpeed() {
 
-        //Creating collection with 8000000 elements of type Integer
+        //Creating collection with 800 elements of type Integer
         //String numberOfBook;
         HashMap<String,Book> list = new HashMap<String, Book>();
        String numberOfBook;

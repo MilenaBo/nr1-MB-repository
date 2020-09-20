@@ -35,14 +35,21 @@ public class Item {
         this.id = id;
     }
 
+    //***uwagi 4sie:
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {return invoice;}
     public void  setInvoice(Invoice invoice) { this.invoice = invoice;   }
-
-//KOLUMNA
+    //KOLUMNA
     public Product getProduct() { return product;   }
     public void setProduct(Product product) {  this.product = product;   }
+
+//    //***uwagi 4sie:
+//    @ManyToOne
+//    @JoinColumn(name = "PRODUCT_ID")
+//    public Product getProduct() {
+//        return product;
+//    }
 
     @OneToMany(
             targetEntity = Product.class,

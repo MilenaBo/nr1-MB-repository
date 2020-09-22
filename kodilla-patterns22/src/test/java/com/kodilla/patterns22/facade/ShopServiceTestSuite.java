@@ -1,5 +1,4 @@
-package com.kodilla.patterns2.facade;
-
+package com.kodilla.patterns22.facade;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

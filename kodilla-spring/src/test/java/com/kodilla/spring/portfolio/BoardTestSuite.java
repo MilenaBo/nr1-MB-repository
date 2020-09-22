@@ -6,7 +6,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class BoardTestSuite {
 
@@ -22,62 +21,53 @@ public class BoardTestSuite {
     }
     @Test
     public void testTaskAdd() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
+        Board board = context.getBean(Board.class);
         //given
-     //  TaskList toDoList = new TaskList();
-//        TaskList toDoList2 = new TaskList();
-      List<String> toDoList = new ArrayList<>();
-        List<String> inProgressList = new ArrayList<>();
-        List<String> doneList = new ArrayList<>();
-        toDoList.add("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia");
-        toDoList.add("nr 2 >>>>>>>>>>>>>>>>>  zadanie do zrobienia");
-        inProgressList.add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
-        doneList.add("nr 1 &&&&&&&&&&&&&&&&&&   zadanie wykonane");
+        TaskList toDoList = new TaskList();
+        TaskList inProgressList = new TaskList();
+        TaskList doneList = new TaskList();
+
+//       toDoList.getToDoList().add(new TaskList("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia"));
+//        inProgressList.getInProgress().add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
+//        doneList.getDoneList().add("nr 1 &&&&&&&&&&&&&&&&&&   zadanie wykonane");
 
         System.out.println(toDoList);
         System.out.println(inProgressList);
         System.out.println(doneList);
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
-Board board = context.getBean(Board.class);
-        System.out.println("***BEAN TODO***  ");
-     //   System.out.println(context.getBean("toDo",board.getToDoList()));
-
-      //  BoardConfig board = context.getBean(BoardConfig.class);
+//        System.out.println("***BEAN TODO***  ");
+//        System.out.println(context.getBean("toDo",board.getToDoList()));
         System.out.println("   test2%%%%%%%%%%%%%  context.getBean(Board.class)");
-        System.out.println(board.getToDoList());
         System.out.println(board);
     }
 
         @Test
-        public void testTaskAddAndBEEN() {
-            //given
+        public void testTaskAddAndBEEN_S() {
 
-            TaskList toDoList = new TaskList();
-            TaskList inProgressList = new TaskList();
-            TaskList doneList = new TaskList();
-            Board board= new Board(toDoList,inProgressList,doneList);
+        ArrayList toDoList = new ArrayList<>();
+            ArrayList inProgressList = new ArrayList<>();
+            ArrayList doneList = new ArrayList<>();
 
-
-
-//            //board.getToDoList().("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia");
-//            toDoList.add("nr 2 >>>>>>>>>>>>>>>>>  zadanie do zrobienia");
-//            inProgressList.add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
-//            doneList.add("nr 1 &&&&&&&&&&&&&&&&&&   zadanie wykonane");
+            toDoList.add("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia");
+            toDoList.add("nr 2 >>>>>>>>>>>>>>>>>  zadanie do zrobienia");
+            inProgressList.add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
+            doneList.add("nr 1 &&&&&&&&&&&&&&&&&&   zadanie wykonane");
 
             ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
 
 
-            System.out.println("***BEAN TODO***  ");
+            System.out.println("***BEAN BoardConfig***  ");
             System.out.println(context.containsBean("toDo"));
+            System.out.println(context.containsBean("inProgress"));
 
-            Board board1 = context.getBean(Board.class);
-            board1.getToDoList();
+            BoardConfig boardConfig = context.getBean(BoardConfig.class);
+            boardConfig.getBoard();
 
+            System.out.println("  test3!!!!!!!!!!!!!!!context.getBean(BoardConfig.class)");
 
-            System.out.println("  test3!!!!!!!!!!!!!!!context.getBean(Board.class)");
-
-            System.out.println(board1.getToDoList());
-            System.out.println(board1);
+            System.out.println(context.getBean("inProgress"));
+            System.out.println();
         }
     }
 

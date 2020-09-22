@@ -41,24 +41,15 @@ public class Item {
     public Invoice getInvoice() {return invoice;}
     public void  setInvoice(Invoice invoice) { this.invoice = invoice;   }
     //KOLUMNA
-    public Product getProduct() { return product;   }
+ //   public Product getProduct() { return product;   }
     public void setProduct(Product product) {  this.product = product;   }
 
-//    //***uwagi 4sie:
-//    @ManyToOne
-//    @JoinColumn(name = "PRODUCT_ID")
-//    public Product getProduct() {
-//        return product;
-//    }
-
-    @OneToMany(
-            targetEntity = Product.class,
-            mappedBy = "item",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    public List<Product> getProducts() { return products; }
-    private void setProducts(List<Product> products) { this.products = products;  }
+    //***uwagi 4sie:
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
+    }
 
     @Column(name = "PRICE")
     public BigDecimal getPrice() { return price;  }

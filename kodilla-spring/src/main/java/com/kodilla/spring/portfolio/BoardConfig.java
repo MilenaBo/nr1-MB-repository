@@ -9,9 +9,7 @@ public class BoardConfig {
 
  @Bean(name = "toDo")
  @Scope("prototype")
- public TaskList getTaskList1() {
-  return new TaskList();
- }
+ public TaskList getTaskList1() { return new TaskList(); }
 
  @Bean(name = "inProgress")
  @Scope("prototype")

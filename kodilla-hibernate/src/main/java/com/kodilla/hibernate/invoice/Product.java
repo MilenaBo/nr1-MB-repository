@@ -2,15 +2,18 @@ package com.kodilla.hibernate.invoice;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
-public final class Product {
+public class Product {
     private int id;
     private String name;
-    private Item item;
+    private List<Item> items = new ArrayList<>();
 
-    public Product() {  }
+    public Product() {
+    }
 
     public Product(String name) {
         this.name = name;
@@ -19,28 +22,35 @@ public final class Product {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
-    public int getId() {return id;}
-
-    @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
-    public Item getItem() { return item;    }
-    public void setItem(Item item) { this.item = item;  }
-
-//    //***uwagi 4sie:
-//    @OneToMany(targetEntity = Item.class,
-//    mappedBy =  "product",
-//    cascade = CascadeType.ALL,
-//    fetch = FetchType.LAZY)
-//   public List<Item> getItem() {return  item;}
-
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
 
     @NotNull
     @Column(name = "NAME")
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
-    private void setId(int id) {this.id = id;}
+    @OneToMany(targetEntity = Item.class,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Item> getItems() {
+        return items;
+    }
 
-    private void setName(String name) {this.name = name;}
+    private void setId(int id) {
+        this.id = id;
+    }
 
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    private void setItems(List<Item> items) {
+        this.items = items;
+    }
 }

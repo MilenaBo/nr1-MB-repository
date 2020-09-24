@@ -16,7 +16,7 @@ import java.util.Optional;
 public class Task0DaoTestSuite {
     @Autowired
     private Task0Dao task0Dao;
-    private static final String DESCRIPTION = "Test moduł 2: Learn Hibernate";
+    private static final String DESCRIPTION = "Test moduł 17.2: Learn Hibernate";
 
     @Test
     public void testTask0DaoSave() {
@@ -28,8 +28,8 @@ public class Task0DaoTestSuite {
 
         //Then
         int id = task.getId();
-        Optional<Task0> readTask = task0Dao.findById(id);
-        Assert.assertTrue(readTask.isPresent());
+        Optional<Task0> readTask0 = task0Dao.findById(id);
+        Assert.assertTrue(readTask0.isPresent());
 
         //CleanUp
         task0Dao.deleteById(id);

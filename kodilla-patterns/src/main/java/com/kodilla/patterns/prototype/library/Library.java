@@ -1,5 +1,7 @@
 package com.kodilla.patterns.prototype.library;
 
+import com.kodilla.patterns.prototype.libraryPROTOTYPE.LibraryPrototype;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,4 +26,5 @@ public final class Library {
                 ", books=" + books +
                 '}';
     }
+
 }

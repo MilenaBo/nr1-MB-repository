@@ -28,8 +28,10 @@ public class BoardTestSuite {
         TaskList inProgressList = new TaskList();
         TaskList doneList = new TaskList();
 
-//       toDoList.getToDoList().add(new TaskList("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia"));
-//        inProgressList.getInProgress().add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
+
+
+//      toDoList.getToDoList().add("nr 1 >>>>>>>>>>>>>>>> zadanie do zrobienia");
+//      inProgressList.getTaskList2.getInProgress().add("nr1 $$$$$$$$$$$$$$$   zadanie  w trakcie");
 //        doneList.getDoneList().add("nr 1 &&&&&&&&&&&&&&&&&&   zadanie wykonane");
 
         System.out.println(toDoList);

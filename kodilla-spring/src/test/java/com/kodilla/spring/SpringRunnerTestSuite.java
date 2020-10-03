@@ -57,6 +57,6 @@ public class SpringRunnerTestSuite {
         //When
         String name = shape.getShapeName();
         //Then
-        System.out.println("Chosen shape says: " + name);
+        System.out.println("Chosen shape sssssssssssays: " + name);
     }
 }

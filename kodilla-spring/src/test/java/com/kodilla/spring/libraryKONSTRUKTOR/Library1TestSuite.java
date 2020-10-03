@@ -26,7 +26,6 @@ public class Library1TestSuite {
         System.out.println("<< ===== Beans list of LibraryConfig====");
     }
 
-
     @Test
     public void testLoadFromDb() {
         //Given

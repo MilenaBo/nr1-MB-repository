@@ -9,8 +9,6 @@ import java.util.Set;
 public final class LibraryPrototype extends Prototype {
     private String name;
     private Set<Book> books = new HashSet<>();
-//    private LibraryPrototype libraryPrototype;
-//    private Book book;
 
     public LibraryPrototype(String name) { this.name = name;   }
     public void setName(String name) { this.name = name;}

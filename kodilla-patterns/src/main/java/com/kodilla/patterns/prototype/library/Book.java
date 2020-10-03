@@ -32,6 +32,4 @@ public final class Book {
                 ", author='" + author + '\'' +
                 ", publicationDate=" + publicationDate +  '}';
     }
-
-
 }

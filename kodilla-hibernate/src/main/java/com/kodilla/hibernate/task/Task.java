@@ -1,3 +1,6 @@
+//17.2 str11 def class Task; str 13-18  BAZA DANYCH:  stworzenie tabeli task;
+// str36- referencje do TaskFinancialDetails;
+//
 package com.kodilla.hibernate.task;
 
 import com.kodilla.hibernate.tasklist.TaskList;

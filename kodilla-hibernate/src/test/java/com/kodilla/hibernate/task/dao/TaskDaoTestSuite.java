@@ -1,3 +1,4 @@
+//17.2 s.23-27 @Autowired;
 package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;

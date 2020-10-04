@@ -10,11 +10,8 @@ public final class Board {
         this.inProgressList = inProgressList;
         this.doneList = doneList;
     }
-
     public Board() {
-
     }
-
     public TaskList getToDoList() {
         return toDoList;
     }

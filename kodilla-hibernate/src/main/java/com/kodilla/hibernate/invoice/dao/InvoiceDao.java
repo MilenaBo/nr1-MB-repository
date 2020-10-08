@@ -1,9 +1,14 @@
 package com.kodilla.hibernate.invoice.dao;
 
-//@Transactional
-//@Repository
+import com.kodilla.hibernate.invoice.Invoice;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface InvoiceDao {
-        //extends CrudRepository<Invoice, Integer> {
+import javax.transaction.Transactional;
+
+@Transactional
+@Repository
+
+public interface InvoiceDao extends CrudRepository<Invoice, Integer> {
 
 }

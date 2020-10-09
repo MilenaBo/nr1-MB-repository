@@ -1,6 +1,9 @@
 package com.kodilla.patterns22.facade;
 
-
+import com.kodilla.patterns22.facade.api.ItemDto;
+import com.kodilla.patterns22.facade.api.OrderDto;
+import com.kodilla.patterns22.facade.api.OrderFacade;
+import com.kodilla.patterns22.facade.api.OrderProcessingException;
 import org.junit.Test;
 //import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +18,8 @@ import java.math.BigDecimal;
 public class ShopServiceTestSuite {
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private OrderFacade orderFacade;
 
     @Test
     public void testShopServiceSubmitOrder() {
@@ -57,6 +62,21 @@ public class ShopServiceTestSuite {
             }
         } else {
             System.out.println("Access denied. User is not authenticated.");
+        }
+    }
+
+    @Test
+    public void testShopFacade() {
+        OrderDto order = new OrderDto();
+
+        order.addItem(new ItemDto(10L, 2));
+        order.addItem(new ItemDto(216L, 1));
+        order.addItem(new ItemDto(25L, 1));
+        order.addItem(new ItemDto(11L, 3));
+        try {
+            orderFacade.processOrder(order, 1L);
+        } catch (OrderProcessingException e) {
+            //  BUSINESS EXCEPTION - should be handled in real application
         }
     }
 }

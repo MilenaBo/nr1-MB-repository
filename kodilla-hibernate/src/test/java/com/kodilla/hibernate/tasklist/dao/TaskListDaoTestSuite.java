@@ -24,7 +24,7 @@ public class TaskListDaoTestSuite {
     private TaskDao taskDao;
 
     private static final String LISTNAME ="MB_ListName";
-    private static final String DESCRIPTION = "TEST: zadanie 17.2";
+    private static final String DESCRIPTION = "TEST: zadanie 17.2  i 17.4";
 
     @Test
     public void testFindByListName() {
@@ -109,14 +109,16 @@ public class TaskListDaoTestSuite {
         List<Task> longTasks = taskDao.retrieveLongTasks();
         List<Task> shortTasks = taskDao.retrieveShortTasks();
         List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
+        List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithDurationLongerThan(6);
 
         //Then
         try {
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
             Assert.assertEquals(3, enoughTimeTasks.size());
+            Assert.assertEquals(2,durationLongerThanTasks.size());
         } finally {
-            //CleanUp
+        //CleanUp
             taskListDao.deleteById(id);
         }
     }

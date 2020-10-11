@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.invoice;
+package com.kodilla.hibernate.invoice1NN1;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,10 +35,10 @@ public class Invoice {
     private void setNumber(String number) {    this.number = number;    }
 
     @OneToMany(
-    targetEntity = Item.class,
-    mappedBy = "invoice",
-    cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY          )
+            targetEntity = Item.class,
+            mappedBy = "invoice",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY          )
 
     public List<Item> getItems() {
         return items;

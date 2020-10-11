@@ -5,6 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Employee.retrieveLastname",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -29,12 +33,10 @@ public class Employee {
 
     public Employee() {
     }
-
     public Employee(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
     }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -58,11 +60,9 @@ public class Employee {
     private void setId(int id) {
         this.id = id;
     }
-
     private void setFirstname(String firstname) {
         this.firstname = firstname;
     }
-
     private void setLastname(String lastname) {
         this.lastname = lastname;
     }

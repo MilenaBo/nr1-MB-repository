@@ -1,5 +1,4 @@
-package com.kodilla.hibernate.invoice;
-
+package com.kodilla.hibernate.invoice1NN1;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -9,12 +8,14 @@ import java.util.List;
 @Entity
 @Table(name = "ITEM")
 public class Item {
+
     private  int id;
     private Product product;
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
     private Invoice invoice;
+    private List<Product> products = new ArrayList<>();
 
     public Item() {}
     public Item(Product product, BigDecimal price, int quantity, BigDecimal value) {
@@ -31,13 +32,7 @@ public class Item {
     private void setId(int id) {
         this.id = id;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "INVOICE_ID")
-    public Invoice getInvoice() {return invoice;}
-    public void  setInvoice(Invoice invoice) { this.invoice = invoice;   }
-
-    @OneToOne (cascade =  CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne (cascade =  CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -55,4 +50,9 @@ public class Item {
     @Column(name = "VALUE")
     public BigDecimal getValue() { return value;   }
     private void setValue(BigDecimal value) {  this.value = value;   }
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {return invoice;}
+    public void  setInvoice(Invoice invoice) { this.invoice = invoice;   }
 }

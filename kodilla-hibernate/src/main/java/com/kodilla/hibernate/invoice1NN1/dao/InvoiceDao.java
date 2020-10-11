@@ -1,6 +1,7 @@
-package com.kodilla.hibernate.invoice.dao;
+package com.kodilla.hibernate.invoice1NN1.dao;
 
-import com.kodilla.hibernate.invoice.Invoice;
+
+import com.kodilla.hibernate.invoice1NN1.Invoice;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

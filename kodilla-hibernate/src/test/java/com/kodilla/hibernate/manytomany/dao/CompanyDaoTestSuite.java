@@ -2,6 +2,10 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.facade.api.CompanyDto;
+import com.kodilla.hibernate.manytomany.facade.api.CompanyFacade;
+import com.kodilla.hibernate.manytomany.facade.api.CompanyProcessingException;
+import com.kodilla.hibernate.manytomany.facade.api.EmployeeDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +22,8 @@ public class CompanyDaoTestSuite {
     CompanyDao companyDao;
     @Autowired
     EmployeeDao employeeDao;
+    @Autowired
+    CompanyFacade companyFacade;
 
     @Test
     public void testSaveManyToMany(){
@@ -66,6 +72,8 @@ public class CompanyDaoTestSuite {
     }
     @Test
     public void CompanyDaoTestSuite() {
+        CompanyDto companyDto = new CompanyDto();
+       EmployeeDto employeeDto = null;
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -95,14 +103,34 @@ public class CompanyDaoTestSuite {
        //then
         List<Employee> theEmployees = employeeDao.retrieveLastname("Smith");
         List<Company> theCompanies = companyDao.retrieveCompany3Char();
+        //24.1 to dziala  v
+//        List<Company> theLikeNameCompany = companyDao.retrieveLIKE_NameCompany("soft");
+//        List<Employee> employeesLike = employeeDao.retrieveLIKE_Lastname("smi");
 
         try{
             Assert.assertNotEquals(0,theEmployees.size());
             Assert.assertNotEquals(0,theCompanies.size());
+            //24.1 to dziala  v
+//            Assert.assertNotEquals(0,theLikeNameCompany.size());
+
+//companyFacade.processEmployee(companyDto.getEmployees(),"smi");
+       //24.1
+            companyFacade.processCompany(companyDto,"ssss");
+        } catch (CompanyProcessingException e) {
+            e.printStackTrace();
         } finally {
             //cleanUp
-            employeeDao.deleteAll();
-            companyDao.deleteAll();
+//            employeeDao.deleteAll();
+//            companyDao.deleteAll();
         }
+//        companyFacade.processEmployee(employeeDto,"smi");
     }
+//    @Test
+//    public void likeTest() {
+//        CompanyDto companyDto = new CompanyDto();
+//        companyDto.addEmployee(new EmployeeDto("JAN","NOWAK"));
+//        companyDto.addEmployee(new EmployeeDto("JAN","NOWIK"));
+//        companyDto.addEmployee(new EmployeeDto("JAN","NOWEK"));
+//
+//    }
 }

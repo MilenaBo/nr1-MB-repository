@@ -4,12 +4,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedNativeQueries({
 @NamedNativeQuery(
         name = "Company.retrieveCompany3Char",
         query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME,'3') ='Sof'",
         resultClass = Company.class
-)
+),
+@NamedNativeQuery(
+        name = "Company.retrieveLIKE_NameCompany",
+        //query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE '%'+'soft'+'%'; ",
+        query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE concat('%',:ARG,'%');",
+        resultClass = Company.class
+        )
+})
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -50,5 +57,13 @@ public class Company {
     }
     private void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name +
+                '}';
     }
 }

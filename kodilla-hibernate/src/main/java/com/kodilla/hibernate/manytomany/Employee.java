@@ -9,6 +9,11 @@ import java.util.List;
         name = "Employee.retrieveLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+@NamedNativeQuery(
+        name = "Employee.retrieveLIKE_Lastname",
+        query = "SELECT * FROM kodilla_course.employees WHERE lastname LIKE concat('%',:ARG,'%');",
+        resultClass = Employee.class
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -65,5 +70,13 @@ public class Employee {
     }
     private void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
     }
 }

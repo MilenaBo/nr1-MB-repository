@@ -11,12 +11,10 @@ import java.util.List;
 @Repository
 public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     List<Employee> findByLastname(String lastname);
-
+//17.4
     @Query
     List<Employee> retrieveLastname(@Param("LASTNAME") String lastname);
-
-    //24.1
+//24.1
     @Query(nativeQuery = true)
     List<Employee> retrieveLIKE_Lastname(@Param("ARG") String LIKE_Lastname);
-
 }

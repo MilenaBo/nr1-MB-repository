@@ -12,10 +12,9 @@ import java.util.List;
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     List<Company> findById(int id);
-
+//17.4
 @Query(nativeQuery = true)
     List<Company> retrieveCompany3Char();
-
 //24.1
 @Query(nativeQuery = true)
     List<Company> retrieveLIKE_NameCompany(@Param("ARG") String company_name);

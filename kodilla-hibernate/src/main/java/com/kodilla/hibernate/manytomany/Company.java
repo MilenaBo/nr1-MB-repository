@@ -5,16 +5,18 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 @NamedNativeQueries({
-@NamedNativeQuery(
-        name = "Company.retrieveCompany3Char",
-        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME,'3') ='Sof'",
-        resultClass = Company.class
-),
-@NamedNativeQuery(
-        name = "Company.retrieveLIKE_NameCompany",
-        //query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE '%'+'soft'+'%'; ",
-        query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE concat('%',:ARG,'%');",
-        resultClass = Company.class
+        //zadanie 24.5
+        @NamedNativeQuery(
+                name = "Company.retrieveLIKE_NameCompany",
+                //query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE '%'+'soft'+'%'; ",
+                query = "SELECT * FROM kodilla_course.companies WHERE company_name LIKE concat('%',:ARG,'%');",
+                resultClass = Company.class
+        ),
+        //zadanie 17.4
+        @NamedNativeQuery(
+                name = "Company.retrieveCompany3Char",
+                query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME,'3') ='Sof'",
+                resultClass = Company.class
         )
 })
 @Entity

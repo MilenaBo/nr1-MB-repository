@@ -2,10 +2,9 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.facade.api.CompanyDto;
+//import com.kodilla.hibernate.manytomany.facade.api.CompanyDto;
 import com.kodilla.hibernate.manytomany.facade.api.CompanyFacade;
 import com.kodilla.hibernate.manytomany.facade.api.CompanyProcessingException;
-import com.kodilla.hibernate.manytomany.facade.api.EmployeeDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,8 +71,8 @@ public class CompanyDaoTestSuite {
     }
     @Test
     public void CompanyDaoTestSuite() {
-        CompanyDto companyDto = new CompanyDto();
-       EmployeeDto employeeDto = null;
+   //     CompanyDto companyDto = new CompanyDto();
+     //  EmployeeDto employeeDto = null;
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -100,37 +99,30 @@ public class CompanyDaoTestSuite {
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
 
-       //then
+//       //then
         List<Employee> theEmployees = employeeDao.retrieveLastname("Smith");
         List<Company> theCompanies = companyDao.retrieveCompany3Char();
         //24.1 to dziala  v
-//        List<Company> theLikeNameCompany = companyDao.retrieveLIKE_NameCompany("soft");
+       List<Company> theLikeNameCompany = companyFacade.processCompany("soft");
 //        List<Employee> employeesLike = employeeDao.retrieveLIKE_Lastname("smi");
 
         try{
             Assert.assertNotEquals(0,theEmployees.size());
             Assert.assertNotEquals(0,theCompanies.size());
             //24.1 to dziala  v
-//            Assert.assertNotEquals(0,theLikeNameCompany.size());
+       Assert.assertNotEquals(0,theLikeNameCompany.size());
 
 //companyFacade.processEmployee(companyDto.getEmployees(),"smi");
-       //24.1
-            companyFacade.processCompany(companyDto,"ssss");
+       //24.1 str21, linia 74
+            companyFacade.processCompany("soft");
         } catch (CompanyProcessingException e) {
             e.printStackTrace();
         } finally {
-            //cleanUp
+            //cleanUp dziala, ale nie po id
 //            employeeDao.deleteAll();
 //            companyDao.deleteAll();
         }
-//        companyFacade.processEmployee(employeeDto,"smi");
+        List<Employee> theLikeEmployes = companyFacade.processEmployee("smi");
+       Assert.assertNotEquals(0,theLikeEmployes.size());
     }
-//    @Test
-//    public void likeTest() {
-//        CompanyDto companyDto = new CompanyDto();
-//        companyDto.addEmployee(new EmployeeDto("JAN","NOWAK"));
-//        companyDto.addEmployee(new EmployeeDto("JAN","NOWIK"));
-//        companyDto.addEmployee(new EmployeeDto("JAN","NOWEK"));
-//
-//    }
 }

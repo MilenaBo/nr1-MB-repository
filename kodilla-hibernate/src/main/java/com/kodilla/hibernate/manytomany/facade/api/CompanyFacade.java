@@ -14,43 +14,32 @@ import java.util.List;
 public final class CompanyFacade {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
     EmployeeDao employeeDao;
-
-    private Company company;
-    private Employee employee;
     private static final Logger LOGGER = LoggerFactory.getLogger(CompanyFacade.class);
 
-    public void processCompany(final CompanyDto companies, final String likeName)
-        throws CompanyProcessingException {
-            boolean wasError = false;
+    public List<Company> processCompany(final String likeName) {
+
             List<Company> theLikeNameCompany = companyDao.retrieveLIKE_NameCompany(likeName);
             LOGGER.info("*** I AM FINDING COMPANIES LIKE " + likeName);
             if (theLikeNameCompany.size() == 0) {
                 LOGGER.error(CompanyProcessingException.COMPANIES_NOT_EXIST);
-                wasError = true;
                 throw new CompanyProcessingException(CompanyProcessingException.COMPANIES_NOT_EXIST);
             }   try     {   System.out.println(theLikeNameCompany);
             }   finally {   LOGGER.info("*** CANCELLING FINDING COMPANIES LIKE " + likeName);
-            }
+            } return theLikeNameCompany;
         }
-        public void processEmployee(final EmployeeDto employee,final String likeLastName)
-            throws  CompanyProcessingException {
-        boolean wasError = false;
+
+        public List<Employee> processEmployee(final String likeLastName)
+             {
         List<Employee> theLikeLastnameEmployees =  employeeDao.retrieveLIKE_Lastname(likeLastName);
         LOGGER.info("************ I'm finding employees LIKE "+likeLastName);
         if (theLikeLastnameEmployees.size() == 0) {
             LOGGER.error(CompanyProcessingException.EMPLOYEES_NOT_EXIST);
-            wasError = true;
-            throw  new CompanyProcessingException(CompanyProcessingException.EMPLOYEES_NOT_EXIST);
-        }   try {
-                System.out.println(theLikeLastnameEmployees);
-            } finally { LOGGER.info("*** CANCELLING FINDING COMPANIES LIKE "+likeLastName);
-
-            }
-
+        throw  new CompanyProcessingException(CompanyProcessingException.EMPLOYEES_NOT_EXIST);
+        }   try {     System.out.println(theLikeLastnameEmployees);
+        } finally { LOGGER.info("*** CANCELLING FINDING COMPANIES LIKE "+likeLastName);
+        }
+        return theLikeLastnameEmployees;
         }
 }
-
-
-
-
